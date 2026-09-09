@@ -1,0 +1,42 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Virtual environments
+.venv/
+
+# Env / secrets — .env.example stays tracked
+.env
+.env.*
+!.env.example
+
+# Local runtime data (WEBHERMES_DB, run logs)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3
+webhermes-artifacts/
+webhermes-llm-calls.jsonl
+
+# Hugo docs site (website/)
+website/public/
+website/resources/
+website/.hugo_build.lock
+
+# System files
+.DS_Store
+
+# Editors
+.idea/
+.vscode/
