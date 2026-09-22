@@ -1,0 +1,22 @@
+{
+  "name": "AutoJob",
+  "description": "auto jobs finder and applier — setup -> scrape -> rank -> stagehand apply -> gmail poll -> prep",
+  "trigger": { "type": "manual" },
+  "nodes": [
+    { "id": "1", "type": "trigger.manual", "params": {} },
+    { "id": "2", "type": "scrape.jobs", "params": { "source": "resume/profile" } },
+    { "id": "3", "type": "llm.rank", "params": { "model": "laya", "range": "1-100" } },
+    { "id": "4", "type": "browser.stagehand", "params": { "goal": "auto-apply per link", "model": "laya" } },
+    { "id": "5", "type": "gmail.poll", "params": { "query": "subject:application newer_than:7d" } },
+    { "id": "6", "type": "llm.tailor", "params": { "model": "laya" } },
+    { "id": "7", "type": "deliver.brief", "params": {} }
+  ],
+  "connections": {
+    "1": { "main": [[{ "node": "2" }]] },
+    "2": { "main": [[{ "node": "3" }]] },
+    "3": { "main": [[{ "node": "4" }]] },
+    "4": { "main": [[{ "node": "5" }]] },
+    "5": { "main": [[{ "node": "6" }]] },
+    "6": { "main": [[{ "node": "7" }]] }
+  }
+}

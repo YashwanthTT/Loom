@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "loom workflow (n8n-lite, Jev-shaped)",
+  "type": "object",
+  "required": ["name", "trigger", "nodes", "connections"],
+  "properties": {
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "trigger": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["cron", "manual", "webhook", "poll"] },
+        "cron": { "type": "string" },
+        "event": { "type": "string" }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type"],
+        "properties": {
+          "id": { "type": "string" },
+          "type": {
+            "enum": [
+              "trigger.cron", "trigger.manual", "trigger.webhook", "trigger.poll",
+              "gmail.read", "gmail.poll", "gmail.label",
+              "calendar.read",
+              "rss.poll",
+              "browser.stagehand",
+              "scrape.jobs", "scrape.company",
+              "llm.jev.choice", "llm.jev.noul", "llm.jev.score",
+              "llm.summarize", "llm.rank", "llm.classify", "llm.extract", "llm.research", "llm.tailor", "llm.gaps",
+              "store.sheet", "store.json",
+              "deliver.digest", "deliver.brief", "deliver.alert", "deliver.inbox",
+              "switch", "if"
+            ]
+          },
+          "params": { "type": "object" },
+          "position": { "type": "array", "items": { "type": "number" } }
+        }
+      }
+    },
+    "connections": { "type": "object" }
+  }
+}
