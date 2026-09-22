@@ -4,7 +4,7 @@
   --skim-deep: #f2f0eb;
   --card: #ffffff;
   --border: #d6d2cc;
-  --border-strong: #c2beb7;
+  --border-strong: #b8b3ac;
   --text: #2e2b29;
   --text-h: #0f0e0d;
   --text-muted: #6b6560;
@@ -12,8 +12,8 @@
   --accent-fg: #ffffff;
   --accent-soft: rgba(17,16,15,0.06);
   --code-bg: #f2f0eb;
-  --shadow: 0 1px 2px rgba(15,14,13,0.06), 0 8px 24px rgba(15,14,13,0.06);
-  --radius: 12px;
+  --shadow: none;
+  --radius: 2px;
   --sans: ui-sans-system, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   font: 14px/1.5 var(--sans);

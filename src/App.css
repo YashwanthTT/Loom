@@ -1,10 +1,18 @@
 .frame { min-height: 100svh; background: var(--bg); }
-.frame-inner { min-height: 100svh; display: flex; background: var(--bg); }
-.stack { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.stack-card { flex: 1; background: var(--bg); display: flex; flex-direction: column; min-height: 100svh; }
-.stack-card-head { height: 48px; display: flex; align-items: center; padding: 0 20px; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 10; }
+.frame-inner { min-height: 100svh; display: flex; flex-direction: column; background: var(--bg); gap: 0; }
+.topbar { display: flex; justify-content: center; padding: 10px 12px 0; background: var(--bg); position: sticky; top: 0; z-index: 20; }
+.topbar-inner { display: flex; align-items: center; gap: 10px; background: #fff; border: 1px solid var(--border); border-radius: 2px; padding: 6px 10px 6px 8px; }
+.topbar-logo { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-h); font-size: 13px; letter-spacing: -0.02em; padding-right: 8px; border-right: 1px solid var(--border); }
+.topbar-select-wrap { position: relative; display: flex; align-items: center; }
+.topbar-select { appearance: none; -webkit-appearance: none; border: 1px solid var(--border); background: var(--skim); border-radius: 2px; padding: 6px 28px 6px 10px; font-size: 13px; font-weight: 500; color: var(--text-h); cursor: pointer; outline: none; }
+.topbar-select:focus { border-color: var(--border-strong); background: #fff; }
+.topbar-caret { position: absolute; right: 10px; pointer-events: none; font-size: 11px; color: var(--text-muted); }
+.topbar-hint { font-size: 11px; color: var(--text-muted); border: 1px solid var(--border); background: var(--skim); border-radius: 2px; padding: 2px 6px; }
+.stack { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 8px; min-height: 0; }
+.stack-card { flex: 1; background: #fff; display: flex; flex-direction: column; min-height: calc(100svh - 72px); border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.stack-card-head { height: 44px; display: flex; align-items: center; padding: 0 12px; border-bottom: 1px solid var(--border); background: #fff; position: sticky; top: 0; z-index: 10; }
 .stack-title { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--text-h); font-size: 13px; letter-spacing: -0.02em; }
-.stack-icon { width: 22px; height: 22px; border-radius: 7px; background: var(--accent); color: var(--accent-fg); border: 1px solid var(--accent); display: grid; place-items: center; font-size: 11px; line-height: 1; }
-.workspace { padding: 20px; max-width: 1120px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-.empty { padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: 13px; color: var(--text-muted); background: var(--skim); border: 1px solid var(--border); border-radius: 12px; }
-.empty-icon { width: 32px; height: 32px; border-radius: 9px; background: #fff; border: 1px solid var(--border); display: grid; place-items: center; font-size: 14px; color: var(--text-muted); }
+.stack-icon { width: 20px; height: 20px; border-radius: 2px; background: var(--accent); color: var(--accent-fg); border: 1px solid var(--accent); display: grid; place-items: center; font-size: 10px; line-height: 1; }
+.workspace { padding: 16px; max-width: 1120px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.empty { padding: 24px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; font-size: 13px; color: var(--text-muted); background: var(--skim); border: 1px solid var(--border); border-radius: 2px; }
+.empty-icon { width: 28px; height: 28px; border-radius: 2px; background: #fff; border: 1px solid var(--border); display: grid; place-items: center; font-size: 12px; color: var(--text-muted); }

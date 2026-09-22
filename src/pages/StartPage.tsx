@@ -33,12 +33,12 @@ export default function StartPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(280px,1fr))', gap: 12 }}>
           {autos.map(a => (
-            <div key={a.id} style={{ border: '1px solid var(--border)', borderRadius: 10, padding: 12, background: '#fff', display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <div key={a.id} style={{ border: '1px solid var(--border)', borderRadius: 2, padding: 12, background: '#fff', display: 'flex', flexDirection: 'column', gap: 8 }}>
               <div style={{ fontWeight: 600, color: 'var(--text-h)', fontSize: 13 }}>{a.wf?.name ?? a.id} <span style={{ fontWeight: 400, color: 'var(--text-muted)' }}>· {a.wf?.trigger.type}{a.wf?.trigger.cron ? ` ${a.wf.trigger.cron}` : ''}</span></div>
-              <div style={{ fontSize: 12, color: 'var(--text)', whiteSpace: 'pre-wrap', lineHeight: 1.5, maxHeight: 120, overflow: 'auto', background: 'var(--bg)', padding: 8, borderRadius: 8, border: '1px solid var(--border)' }}>{(a.plan ?? '').slice(0, 400)}</div>
+              <div style={{ fontSize: 12, color: 'var(--text)', whiteSpace: 'pre-wrap', lineHeight: 1.5, maxHeight: 120, overflow: 'auto', background: 'var(--bg)', padding: 8, borderRadius: 2, border: '1px solid var(--border)' }}>{(a.plan ?? '').slice(0, 400)}</div>
               <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                 {(a.wf?.nodes ?? []).map(n => (
-                  <span key={n.id} style={{ fontSize: 11, padding: '2px 6px', borderRadius: 6, background: n.type.startsWith('llm') ? '#ede9fe' : n.type.startsWith('browser') ? '#fef3c7' : n.type.startsWith('trigger') ? '#dcfce7' : 'var(--skim-deep)', border: '1px solid var(--border)' }}>{n.type}{n.params?.model ? `:${String(n.params.model)}` : ''}</span>
+                  <span key={n.id} style={{ fontSize: 11, padding: '2px 6px', borderRadius: 2, background: n.type.startsWith('llm') ? '#ede9fe' : n.type.startsWith('browser') ? '#fef3c7' : n.type.startsWith('trigger') ? '#dcfce7' : 'var(--skim-deep)', border: '1px solid var(--border)' }}>{n.type}{n.params?.model ? `:${String(n.params.model)}` : ''}</span>
                 ))}
               </div>
               <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{a.wf?.nodes.length ?? 0} nodes · {a.wf ? 'workflow.json ✓' : 'no workflow'} · {a.plan ? 'plan.md ✓' : ''}</div>
