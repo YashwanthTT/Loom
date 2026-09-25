@@ -4,6 +4,8 @@ import "./App.css"
 const wfRaw = import.meta.glob<string>("./automation/**/workflow.json", { eager: true, query: "?raw", import: "default" })
 const planRaw = import.meta.glob<string>("./automation/**/plan.md", { eager: true, query: "?raw", import: "default" })
 
+const HIDDEN = ["Trading"]
+
 function getNames(): string[] {
   const ids = new Set<string>()
   for (const p of Object.keys(wfRaw)) {
@@ -26,7 +28,7 @@ function getNames(): string[] {
       if (id) ids.add(id)
     }
   }
-  return [...ids].sort((a,b)=>a.localeCompare(b))
+  return [...ids].filter(id => !HIDDEN.includes(id)).sort((a,b)=>a.localeCompare(b))
 }
 
 const NAMES = getNames()
